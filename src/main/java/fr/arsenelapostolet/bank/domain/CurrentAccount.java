@@ -32,6 +32,11 @@ public class CurrentAccount extends Account {
         throw new UnsupportedOperationException("Les comptes courants n'ont pas d'intérêts");
     }
 
+    @Override
+    public String getType() {
+        return "Current Account";
+    }
+
     public BigDecimal getOverdraft() {
         return overdraft;
     }

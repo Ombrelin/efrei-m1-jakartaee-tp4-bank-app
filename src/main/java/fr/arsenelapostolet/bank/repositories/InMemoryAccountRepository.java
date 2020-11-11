@@ -33,6 +33,11 @@ public class InMemoryAccountRepository implements AccountRepository {
         return query.getResultList();
     }
 
+    @Override
+    public void save(Account account) {
+        em.getTransaction().commit();
+    }
+
     public EntityManager getEm() {
         return em;
     }

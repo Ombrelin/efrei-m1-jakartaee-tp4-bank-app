@@ -29,4 +29,5 @@ public interface AccountService {
     BigDecimal getWithdrawalsTotal(int accountNumber);
 
     List<Account> getAccounts();
+    Account getAccount(int accountNumber);
 }

@@ -18,7 +18,7 @@ public abstract class Account {
     @Column
     private BigDecimal balance;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Operation> operations;
 
     public Account() {
@@ -71,6 +71,8 @@ public abstract class Account {
                 .map(Operation::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
+
+    public abstract String getType();
 
     public int getAccountNumber() {
         return accountNumber;

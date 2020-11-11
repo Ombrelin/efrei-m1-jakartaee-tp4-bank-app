@@ -20,8 +20,10 @@
     <input type="radio" id="savings" name="accountType" value="savings">
     <label for="savings">Savings account</label>
 
+    <br>
+    <label for="overdraftRate">Overdraft or Rate</label>
     <input type="number" id="overdraftRate" name="overdraftRate" value="0">
-    <label>Overdraft or Rate</label>
+    <br>
 
     <button type="submit">Submit</button>
 </form>

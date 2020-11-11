@@ -46,4 +46,9 @@ public class SavingsAccount extends Account {
     public void updateBalance() {
         this.setBalance(this.getBalance().add(this.getBalance().multiply(this.interestRate.divide(new BigDecimal(100)))));
     }
+
+    @Override
+    public String getType() {
+        return "Savings Account";
+    }
 }

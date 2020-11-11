@@ -43,12 +43,14 @@ public class AccountServiceImpl implements AccountService {
     public void pay(int accountNumber, BigDecimal amount) {
         var account = this.accountRepository.get(accountNumber);
         account.withdraw(amount);
+        this.accountRepository.save(account);
     }
 
     @Override
     public void withdraw(int accountNumber, BigDecimal amount) {
         var account = this.accountRepository.get(accountNumber);
         account.withdraw(amount);
+        this.accountRepository.save(account);
     }
 
     @Override
@@ -56,6 +58,8 @@ public class AccountServiceImpl implements AccountService {
         var sourceAccount = this.accountRepository.get(sourceAccountNumber);
         var beneficiaryAccount = this.accountRepository.get(beneficiaryAccountNumber);
         sourceAccount.transfer(amount, beneficiaryAccount);
+        this.accountRepository.save(sourceAccount);
+        this.accountRepository.save(beneficiaryAccount);
     }
 
     @Override
@@ -85,6 +89,11 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public List<Account> getAccounts() {
         return this.accountRepository.getAll();
+    }
+
+    @Override
+    public Account getAccount(int accountNumber) {
+        return this.accountRepository.get(accountNumber);
     }
 
     public AccountRepository getAccountRepository() {

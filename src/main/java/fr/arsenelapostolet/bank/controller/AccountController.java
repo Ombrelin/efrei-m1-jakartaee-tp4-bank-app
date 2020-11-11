@@ -19,11 +19,17 @@ public class AccountController extends HttpServlet {
     private AccountService accountService;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Account> accounts = accountService.getAccounts();
-        System.out.println("Accounts count :");
-        System.out.println(accounts.size());
-        accounts.forEach(account -> System.out.println(account.getAccountNumber()));
-        request.setAttribute("accounts", accounts);
-        this.getServletContext().getRequestDispatcher("/WEB-INF/accounts.jsp").forward(request, response);
+        String accountId = request.getParameter("accountId");
+        if(accountId != null){
+            var account = accountService.getAccount(Integer.parseInt(accountId));
+            request.setAttribute("account", account);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/account.jsp").forward(request, response);
+        }
+        else {
+            List<Account> accounts = accountService.getAccounts();
+            accounts.forEach(account -> System.out.println(account.getAccountNumber()));
+            request.setAttribute("accounts", accounts);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/accounts.jsp").forward(request, response);
+        }
     }
 }

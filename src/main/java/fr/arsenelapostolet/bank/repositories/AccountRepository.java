@@ -10,4 +10,5 @@ public interface AccountRepository {
     void insert(Account c);
     Account get(int numero);
     List<Account> getAll();
+    void save(Account c);
 }
