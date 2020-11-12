@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@DiscriminatorColumn(name = "DISC", discriminatorType = DiscriminatorType.STRING)
 public abstract class Operation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,6 +13,8 @@ public abstract class Operation {
     private int numero;
     private BigDecimal amount;
     private LocalDate date;
+
+    public abstract String getType();
 
     public Operation() {
     }

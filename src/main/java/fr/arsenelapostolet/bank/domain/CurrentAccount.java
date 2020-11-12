@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import java.math.BigDecimal;
 
 @Entity
-@DiscriminatorValue(value="CURRENT")
 public class CurrentAccount extends Account {
     @Column
     private BigDecimal overdraft;

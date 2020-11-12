@@ -1,6 +1,7 @@
 package fr.arsenelapostolet.bank.repositories;
 
 import fr.arsenelapostolet.bank.domain.Account;
+import fr.arsenelapostolet.bank.domain.Operation;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -9,12 +10,12 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Stateless
-public class InMemoryAccountRepository implements AccountRepository {
+public class JpaAccountRepository implements AccountRepository {
 
     @PersistenceContext
     private EntityManager em;
 
-    public InMemoryAccountRepository() {
+    public JpaAccountRepository() {
     }
 
     @Override
@@ -35,7 +36,7 @@ public class InMemoryAccountRepository implements AccountRepository {
 
     @Override
     public void save(Account account) {
-        em.getTransaction().commit();
+
     }
 
     public EntityManager getEm() {

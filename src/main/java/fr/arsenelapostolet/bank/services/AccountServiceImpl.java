@@ -42,7 +42,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void pay(int accountNumber, BigDecimal amount) {
         var account = this.accountRepository.get(accountNumber);
-        account.withdraw(amount);
+        account.deposit(amount);
         this.accountRepository.save(account);
     }
 

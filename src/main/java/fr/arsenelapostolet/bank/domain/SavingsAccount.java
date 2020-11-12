@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import java.math.BigDecimal;
 
 @Entity
-@DiscriminatorValue(value="SAVINGS")
 public class SavingsAccount extends Account {
 
     @Column

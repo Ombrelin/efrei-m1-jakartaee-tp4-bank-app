@@ -15,8 +15,8 @@
 <form method="post">
 
     <br>
-    <label for="acountId">Account Id : </label><br>
-    <input type="number" id="acountId" name="acountId">
+    <label for="accountId">Account Id : </label><br>
+    <input type="number" id="accountId" name="accountId">
     <br>
 
     <p>Please select an operation type : </p>

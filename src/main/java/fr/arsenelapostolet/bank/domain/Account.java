@@ -8,7 +8,6 @@ import java.util.Set;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@DiscriminatorColumn(name = "DISC", discriminatorType = DiscriminatorType.STRING)
 public abstract class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +17,7 @@ public abstract class Account {
     @Column
     private BigDecimal balance;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Operation> operations;
 
     public Account() {
