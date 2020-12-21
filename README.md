@@ -1,7 +1,8 @@
 # TP Banque
 
 Application de gestion de comptes bancaires.
-Technologies : 
+
+Technologies utilisées : 
 - JakartaEE
 - Wildfly
 - EJB
